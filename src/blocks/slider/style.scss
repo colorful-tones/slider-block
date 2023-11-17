@@ -1,0 +1,22 @@
+@import "swiper/css";
+@import "swiper/css/a11y";
+@import "swiper/css/autoplay";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+.wp-block-slider {
+	--swiper-theme-color: var(--wp--preset--color--accent, var(--wp--preset--color--primary));
+
+	--swiper-navigation-size: 48px;
+	--swiper-navigation-color: var(--swiper-theme-color);
+
+	--swiper-pagination-bullet-horizontal-gap: 0.5rem;
+	--swiper-pagination-bullet-vertical-gap: 0.5rem;
+	--swiper-pagination-bullet-size: 1rem;
+	--swiper-pagination-bullet-width: 1rem;
+	--swiper-pagination-bullet-height: 1rem;
+	--swiper-pagination-bullet-opacity: 1;
+	--swiper-pagination-bullet-inactive-color: black;
+	--swiper-pagination-bullet-inactive-opacity: .2;
+	--swiper-pagination-bullet-horizontal-gap: 0.5rem;
+}

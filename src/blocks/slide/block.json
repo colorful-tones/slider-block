@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "colorful-tones/slide",
+	"version": "0.1.4",
+	"title": "Slide",
+	"category": "widgets",
+	"icon": "cover-image",
+	"description": "Slides for the Slider block.",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {},
+	"parent": ["colorful-tones/slider"],
+	"supports": {
+		"align": ["wide", "full"],
+		"className": true,
+		"html": false
+	},
+	"textdomain": "slider-block",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
