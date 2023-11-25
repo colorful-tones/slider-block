@@ -13,53 +13,23 @@ import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
  */
 export function SwiperInit( container, options = {} ) {
 	const parameters = {
-		autoplay: false,
+		autoplay: options?.autoplay ?? true,
 		centeredSlides: options?.centerSlides ?? false,
+		createElements: true,
 		direction: 'horizontal',
 		grabCursor: options?.drag ?? true,
+		initialSlide: 0,
 		keyboard: true,
-		modules: [ Keyboard ],
-		navigation: false,
-		pagination: false,
+		modules: [ Autoplay, Keyboard, Navigation, Pagination ],
+		navigation: options?.navigation ?? false,
+		observer: true,
+		observeSlideChildren: true,
+		observeParents: true,
+		pagination: options?.pagination ?? false,
 		simulateTouch: options?.drag ?? true,
 		slidesPerView: options?.slidesPerView ?? 1,
 		speed: options?.speed ?? 300,
 	};
-
-	// Autoplay module.
-	if ( options?.autoplay ) {
-		parameters.modules.push( Autoplay );
-		parameters.autoplay = {
-			delay: options?.autoplayInterval ?? 3000,
-			pauseOnMouseEnter: options?.autoplayPauseOnHover ?? false,
-		};
-	}
-
-	// Navigation module.
-	if ( options?.navigation ) {
-		parameters.modules.push( Navigation );
-		parameters.navigation = {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		};
-	}
-
-	// Pagination module.
-	if ( options?.pagination ) {
-		parameters.modules.push( Pagination );
-		parameters.pagination = {
-			el: '.swiper-pagination',
-			type: options?.paginationType ?? 'bullets',
-			clickable: options?.pagination?.clickable ?? false,
-		};
-
-		if (
-			'bullets' === parameters.pagination.type &&
-			undefined === options?.pagination?.clickable
-		) {
-			parameters.pagination.clickable = true;
-		}
-	}
 
 	return new Swiper( container, parameters );
 }

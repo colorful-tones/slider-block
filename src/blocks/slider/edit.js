@@ -58,30 +58,9 @@ const SliderToolbar = ( { clientId } ) => {
 };
 
 /**
- * Slides component.
- */
-const Slides = memo( () => {
-	const innerBlocksProps = useInnerBlocksProps(
-		{ className: 'swiper-wrapper' },
-		{
-			allowedBlocks: [ 'colorful-tones/slide' ],
-			template: [
-				[ 'colorful-tones/slide' ],
-				[ 'colorful-tones/slide' ],
-			],
-			orientation: 'horizontal',
-		}
-	);
-
-	return <div { ...innerBlocksProps } />;
-} );
-
-/**
  * Slider component.
  */
 const Slider = memo( ( { clientId, attributes } ) => {
-	const { navigation, pagination } = attributes;
-
 	const sliderRef = useRefEffect( ( element ) => {
 		const options = {
 			...attributes,
@@ -149,6 +128,18 @@ const Slider = memo( ( { clientId, attributes } ) => {
 		};
 	} );
 
+	const innerBlocksProps = useInnerBlocksProps(
+		{ className: 'swiper-wrapper' },
+		{
+			allowedBlocks: [ 'colorful-tones/slide' ],
+			template: [
+				[ 'colorful-tones/slide' ],
+				[ 'colorful-tones/slide' ],
+			],
+			orientation: 'horizontal',
+		}
+	);
+
 	return (
 		<>
 			<BlockControls>
@@ -156,19 +147,7 @@ const Slider = memo( ( { clientId, attributes } ) => {
 			</BlockControls>
 
 			<div className="swiper" ref={ sliderRef }>
-				<Slides />
-
-				{ navigation && (
-					<>
-						<div className="swiper-button-next"></div>
-						<div className="swiper-button-prev"></div>
-					</>
-				) }
-				{ pagination && (
-					<>
-						<div className="swiper-pagination"></div>
-					</>
-				) }
+				<div { ...innerBlocksProps } />
 			</div>
 		</>
 	);
