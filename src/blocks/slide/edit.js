@@ -38,11 +38,10 @@ export default function Edit() {
 				[
 					'core/image',
 					{
-						align: 'center',
 						aspectRatio: '16/9',
 						scale: 'cover',
 						sizeSlug: 'full',
-						url: 'https://dummyimage.com/wuxga/6b6b6b/ebebeb.png&text=Replace+Me',
+						url: 'https://dummyimage.com/16:9x1400/6b6b6b/ebebeb.png&text=Replace+Me',
 					},
 				],
 			],
