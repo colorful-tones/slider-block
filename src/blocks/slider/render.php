@@ -14,10 +14,9 @@ $navigation = empty( $attributes['navigation'] ) ? false : $attributes['navigati
 $pagination = empty( $attributes['pagination'] ) ? false : $attributes['pagination'];
 
 $swiper_attr = array(
-	'autoplay'      => $autoplay,
-	'navigation'    => $navigation,
-	'pagination'    => $pagination,
-	'slidesPerView' => 1,
+	'autoplay'   => $autoplay,
+	'navigation' => $navigation,
+	'pagination' => $pagination,
 );
 $swiper_attr = htmlspecialchars( wp_json_encode( $swiper_attr ) );
 
@@ -33,14 +32,5 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	<div class="swiper-wrapper">
 		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
-
-	<?php if ( $navigation ) : ?>
-		<div class="swiper-button-next wp-block-slider__button-next"></div><!-- .swiper-button-next -->
-		<div class="swiper-button-prev wp-block-slider__button-prev"></div><!-- .swiper-button-prev -->
-	<?php endif; ?>
-
-	<?php if ( $pagination ) : ?>
-		<div class="swiper-pagination wp-block-slider__pagination"></div><!-- .swiper-pagination -->
-	<?php endif; ?>
 
 </div><!-- .swiper -->
