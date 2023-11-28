@@ -2,7 +2,7 @@
 
 __Fork it, or download the [latest release](https://github.com/colorful-tones/slider-block/releases), and make it your own!__
 
-This is a demonstration of how you might create a custom [Slider Block](https://www.advancedcustomfields.com/resources/blocks/), which is a slider carousel UI. We're using SwiperJS (3rd-party dependency) for the slider JavaScript and CSS (mostly).
+This is a demonstration of how you might create a custom Slider Block, which is a slider carousel UI. We're using SwiperJS (3rd-party dependency) for the slider JavaScript and CSS (mostly).
 
 ## Installation
 
