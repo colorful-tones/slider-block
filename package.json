@@ -19,6 +19,6 @@
 		"postcss-preset-env": "^9.3.0"
 	},
 	"dependencies": {
-		"swiper": "^11.0.4"
+		"swiper": "^11.0.5"
 	}
 }
