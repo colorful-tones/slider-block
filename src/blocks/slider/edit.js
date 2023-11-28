@@ -9,6 +9,7 @@ import {
 	store as blockEditorStore,
 	BlockControls,
 	InspectorControls,
+	ButtonBlockAppender,
 } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
@@ -26,6 +27,13 @@ import { __ } from '@wordpress/i18n';
  * Shared Swiper config.
  */
 import { SwiperInit } from './swiper-init';
+
+/**
+ * Internal Dependencies
+ */
+import './editor.scss';
+import image1 from './assets/image1.jpg';
+import image2 from './assets/image2.jpg';
 
 /**
  * Slider Toolbar - '+ Add a Slide'
@@ -66,7 +74,8 @@ const Slider = memo( ( { clientId, attributes } ) => {
 			...attributes,
 			...{
 				autoplay: false,
-				drag: false,
+				grabCursor: false,
+				simulateTouch: false,
 			},
 		};
 
@@ -132,11 +141,42 @@ const Slider = memo( ( { clientId, attributes } ) => {
 		{ className: 'swiper-wrapper' },
 		{
 			allowedBlocks: [ 'colorful-tones/slide' ],
-			template: [
-				[ 'colorful-tones/slide' ],
-				[ 'colorful-tones/slide' ],
-			],
 			orientation: 'horizontal',
+			template: [
+				[
+					'colorful-tones/slide',
+					{},
+					[
+						[
+							'core/image',
+							{
+								aspectRatio: '16/9',
+								scale: 'cover',
+								sizeSlug: 'full',
+								url: `${ image1 }`,
+							},
+							[],
+						],
+					],
+				],
+				[
+					'colorful-tones/slide',
+					{},
+					[
+						[
+							'core/image',
+							{
+								aspectRatio: '16/9',
+								scale: 'cover',
+								sizeSlug: 'full',
+								url: `${ image2 }`,
+							},
+							[],
+						],
+					],
+				],
+			],
+			renderAppender: false,
 		}
 	);
 
@@ -149,6 +189,11 @@ const Slider = memo( ( { clientId, attributes } ) => {
 			<div className="swiper" ref={ sliderRef }>
 				<div { ...innerBlocksProps } />
 			</div>
+
+			<ButtonBlockAppender
+				className="slider-appender has-icon"
+				rootClientId={ clientId }
+			/>
 		</>
 	);
 } );

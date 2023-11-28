@@ -44,6 +44,7 @@
 	"textdomain": "slider-block",
 	"version": "0.1.4",
 	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
 	"render": "file:./render.php",
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js"

@@ -16,8 +16,7 @@ export function SwiperInit( container, options = {} ) {
 		autoplay: options?.autoplay ?? true,
 		centeredSlides: options?.centerSlides ?? false,
 		createElements: true,
-		direction: 'horizontal',
-		grabCursor: options?.drag ?? true,
+		grabCursor: options?.grabCursor ?? true,
 		initialSlide: 0,
 		keyboard: true,
 		modules: [ Autoplay, Keyboard, Navigation, Pagination ],
@@ -26,9 +25,7 @@ export function SwiperInit( container, options = {} ) {
 		observeSlideChildren: true,
 		observeParents: true,
 		pagination: options?.pagination ?? false,
-		simulateTouch: options?.drag ?? true,
-		slidesPerView: options?.slidesPerView ?? 1,
-		speed: options?.speed ?? 300,
+		simulateTouch: options?.simulateTouch ?? true,
 	};
 
 	return new Swiper( container, parameters );
