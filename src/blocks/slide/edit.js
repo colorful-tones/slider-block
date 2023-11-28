@@ -4,6 +4,11 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { applyFilters } from '@wordpress/hooks';
 
+/**
+ * Internal Dependencies
+ */
+import image3 from '../slider/assets/image3.jpg';
+
 // eslint-disable-next-line jsdoc/require-returns-type
 /**
  * The edit function describes the structure of your block in the context of the
@@ -34,6 +39,7 @@ export default function Edit() {
 		{ className: 'wp-block-slide__wrapper' },
 		{
 			allowedBlocks,
+			renderAppender: false,
 			template: [
 				[
 					'core/image',
@@ -41,7 +47,7 @@ export default function Edit() {
 						aspectRatio: '16/9',
 						scale: 'cover',
 						sizeSlug: 'full',
-						url: 'https://dummyimage.com/16:9x1400/6b6b6b/ebebeb.png&text=Replace+Me',
+						url: `${ image3 }`,
 					},
 				],
 			],
