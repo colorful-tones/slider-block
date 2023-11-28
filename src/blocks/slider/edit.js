@@ -59,7 +59,7 @@ const SliderToolbar = ( { clientId } ) => {
 	return (
 		<ToolbarGroup>
 			<ToolbarButton icon="plus" onClick={ addSlide }>
-				{ __( 'Add slide', 'slider-block' ) }
+				{ __( 'Add Slide', 'slider-block' ) }
 			</ToolbarButton>
 		</ToolbarGroup>
 	);
