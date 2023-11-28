@@ -6,11 +6,14 @@ import { SwiperInit } from './swiper-init';
 document.addEventListener( 'DOMContentLoaded', () => {
 	const containers = document.querySelectorAll( '.swiper' );
 
+	// Return early, and often.
 	if ( ! containers.length ) {
 		return;
 	}
 
+	// Loop through all sliders and assign Swiper object.
 	containers.forEach( ( element ) => {
+		// We could pass in some unique options here.
 		let options = {};
 
 		try {
@@ -21,9 +24,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			return;
 		}
 
-		const slides = element.querySelectorAll( '.wp-block-slide' );
-		options.totalSlides = slides.length;
-
+		// Slider 🚀
 		SwiperInit( element, options );
 	} );
 } );
