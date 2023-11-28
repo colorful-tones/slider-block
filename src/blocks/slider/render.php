@@ -6,7 +6,7 @@
  * @var string    $content    Block default content.
  * @var \WP_Block $block      Block instance.
  *
- * @package colorful-tones/slider-block
+ * @package wpe/slider-block
  */
 
 $autoplay   = empty( $attributes['autoplay'] ) ? false : $attributes['autoplay'];

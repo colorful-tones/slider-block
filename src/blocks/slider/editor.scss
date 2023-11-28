@@ -1,7 +1,7 @@
 /*
  * Allow full-width images to be full width
  */
-.editor-styles-wrapper [data-type="colorful-tones/slider"].alignfull [data-type="colorful-tones/slide"] .components-resizable-box__container {
+.editor-styles-wrapper [data-type="wpe/slider"].alignfull [data-type="wpe/slide"] .components-resizable-box__container {
 	max-width: none !important;
 	width: 100% !important;
 }
@@ -9,7 +9,7 @@
 /*
  * Set z-index context for overall slider
  */
-.editor-styles-wrapper [data-type="colorful-tones/slider"] {
+.editor-styles-wrapper [data-type="wpe/slider"] {
 	z-index: 1;
 }
 
@@ -17,11 +17,11 @@
  * Disable pagination clicking in editor,
  * because it is kind of problematic.
  */
-.editor-styles-wrapper [data-type="colorful-tones/slider"] .swiper-pagination {
+.editor-styles-wrapper [data-type="wpe/slider"] .swiper-pagination {
 	pointer-events: none;
 }
 
-.editor-styles-wrapper [data-type="colorful-tones/slider"] .swiper-pagination::after {
+.editor-styles-wrapper [data-type="wpe/slider"] .swiper-pagination::after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -30,15 +30,15 @@
 	left: 0;
 }
 
-.editor-styles-wrapper [data-type="colorful-tones/slider"] .swiper-pagination * {
+.editor-styles-wrapper [data-type="wpe/slider"] .swiper-pagination * {
 	pointer-events: none;
 }
 
-.editor-styles-wrapper [data-type="colorful-tones/slider"] .slider-appender {
+.editor-styles-wrapper [data-type="wpe/slider"] .slider-appender {
 	flex-direction: row;
 }
 
-.editor-styles-wrapper [data-type="colorful-tones/slider"] .slider-appender[aria-label]::before {
+.editor-styles-wrapper [data-type="wpe/slider"] .slider-appender[aria-label]::before {
 	content: attr(aria-label);
 	display: inline-flex;
 }

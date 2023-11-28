@@ -1,8 +1,8 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "colorful-tones/slide",
-  "version": "0.1.4",
+  "name": "wpe/slide",
+  "version": "0.1.0",
   "title": "Slide",
   "category": "widgets",
   "icon": "cover-image",
@@ -15,7 +15,7 @@
   },
   "example": {},
   "parent": [
-    "colorful-tones/slider"
+    "wpe/slider"
   ],
   "supports": {
     "align": [
@@ -25,7 +25,7 @@
     "className": true,
     "html": false
   },
-  "textdomain": "slider-block",
+  "textdomain": "wpe",
   "editorScript": "file:./index.js",
   "render": "file:./render.php"
 }

@@ -50,8 +50,9 @@ const SliderToolbar = ( { clientId } ) => {
 		) => select( blockEditorStore ).getBlock( clientId ).innerBlocks
 	);
 
+	// Create a Slide block and insert it.
 	const addSlide = () => {
-		const block = createBlock( 'colorful-tones/slide' );
+		const block = createBlock( 'wpe/slide' );
 		insertBlock( block, innerBlocks.length, clientId, false );
 		selectBlock( block.clientId );
 	};
@@ -59,7 +60,7 @@ const SliderToolbar = ( { clientId } ) => {
 	return (
 		<ToolbarGroup>
 			<ToolbarButton icon="plus" onClick={ addSlide }>
-				{ __( 'Add Slide', 'slider-block' ) }
+				{ __( 'Add Slide', 'wpe' ) }
 			</ToolbarButton>
 		</ToolbarGroup>
 	);
@@ -137,14 +138,15 @@ const Slider = memo( ( { clientId, attributes } ) => {
 		};
 	} );
 
+	// Our nested innerblocks that will be inserted by default.
 	const innerBlocksProps = useInnerBlocksProps(
 		{ className: 'swiper-wrapper' },
 		{
-			allowedBlocks: [ 'colorful-tones/slide' ],
+			allowedBlocks: [ 'wpe/slide' ],
 			orientation: 'horizontal',
 			template: [
 				[
-					'colorful-tones/slide',
+					'wpe/slide',
 					{},
 					[
 						[
@@ -160,7 +162,7 @@ const Slider = memo( ( { clientId, attributes } ) => {
 					],
 				],
 				[
-					'colorful-tones/slide',
+					'wpe/slide',
 					{},
 					[
 						[
@@ -222,10 +224,10 @@ export default function Edit( { attributes, setAttributes } ) {
 			</div>
 
 			<InspectorControls>
-				<PanelBody title={ __( 'Settings', 'slider-block' ) }>
+				<PanelBody title={ __( 'Settings', 'wpe' ) }>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Autoplay', 'slider-block' ) }
+							label={ __( 'Autoplay', 'wpe' ) }
 							checked={ autoplay }
 							onChange={ ( value ) =>
 								setAttributes( { autoplay: value } )
@@ -237,7 +239,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Navigation', 'slider-block' ) }
+							label={ __( 'Navigation', 'wpe' ) }
 							checked={ navigation }
 							onChange={ ( value ) =>
 								setAttributes( { navigation: value } )
@@ -249,7 +251,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Pagination', 'slider-block' ) }
+							label={ __( 'Pagination', 'wpe' ) }
 							checked={ pagination }
 							onChange={ ( value ) =>
 								setAttributes( { pagination: value } )

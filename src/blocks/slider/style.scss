@@ -4,7 +4,7 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
-.wp-block-colorful-tones-slider {
+.wp-block-wpe-slider {
 	--swiper-theme-color: var(--wp--preset--color--accent, var(--wp--preset--color--primary));
 
 	--swiper-navigation-size: 48px;
@@ -18,6 +18,6 @@
 	--swiper-pagination-bullet-inactive-opacity: .2;
 }
 
-.wp-block-colorful-tones-slide :where(figure) {
+.wp-block-wpe-slide :where(figure) {
 	margin-bottom: 0;
 }
