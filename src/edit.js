@@ -24,16 +24,20 @@ import { memo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
- * Shared Swiper config.
- */
-import { SwiperInit } from './swiper-init';
-
-/**
  * Internal Dependencies
  */
+import {
+	ALLOWED_BLOCKS,
+	DEFAULT_BLOCK,
+	DEFAULT_BLOCK_ATTRIBUTES,
+	DEFAULT_INNERBLOCK,
+	DEFAULT_INNERBLOCK_ATTRIBUTES,
+} from './constants';
+import { SwiperInit } from './swiper-init';
 import './editor.scss';
-import image1 from './assets/image1.jpg';
-import image2 from './assets/image2.jpg';
+import PLACEHOLDER_IMG_1 from './assets/image1.jpg';
+import PLACEHOLDER_IMG_2 from './assets/image2.jpg';
+import PLACEHOLDER_IMG_3 from './assets/image3.jpg';
 
 /**
  * Slider Toolbar - '+ Add a Slide'
@@ -52,7 +56,10 @@ const SliderToolbar = ( { clientId } ) => {
 
 	// Create a Slide block and insert it.
 	const addSlide = () => {
-		const block = createBlock( 'wpe/slide' );
+		const block = createBlock( DEFAULT_BLOCK, {
+			url: `${ PLACEHOLDER_IMG_3 }`,
+			...DEFAULT_BLOCK_ATTRIBUTES,
+		} );
 		insertBlock( block, innerBlocks.length, clientId, false );
 		selectBlock( block.clientId );
 	};
@@ -69,7 +76,7 @@ const SliderToolbar = ( { clientId } ) => {
 /**
  * Slider component.
  */
-const Slider = memo( ( { clientId, attributes } ) => {
+const Slider = ( { clientId, attributes, innerBlocksProps } ) => {
 	const sliderRef = useRefEffect( ( element ) => {
 		const options = {
 			...attributes,
@@ -138,50 +145,6 @@ const Slider = memo( ( { clientId, attributes } ) => {
 		};
 	} );
 
-	// Our nested innerblocks that will be inserted by default.
-	const innerBlocksProps = useInnerBlocksProps(
-		{ className: 'swiper-wrapper' },
-		{
-			allowedBlocks: [ 'wpe/slide' ],
-			orientation: 'horizontal',
-			template: [
-				[
-					'wpe/slide',
-					{},
-					[
-						[
-							'core/image',
-							{
-								aspectRatio: '16/9',
-								scale: 'cover',
-								sizeSlug: 'full',
-								url: `${ image1 }`,
-							},
-							[],
-						],
-					],
-				],
-				[
-					'wpe/slide',
-					{},
-					[
-						[
-							'core/image',
-							{
-								aspectRatio: '16/9',
-								scale: 'cover',
-								sizeSlug: 'full',
-								url: `${ image2 }`,
-							},
-							[],
-						],
-					],
-				],
-			],
-			renderAppender: false,
-		}
-	);
-
 	return (
 		<>
 			<BlockControls>
@@ -198,7 +161,7 @@ const Slider = memo( ( { clientId, attributes } ) => {
 			/>
 		</>
 	);
-} );
+};
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -216,11 +179,66 @@ export default function Edit( { attributes, setAttributes } ) {
 	const { autoplay, navigation, pagination } = attributes;
 	const { clientId } = useBlockEditContext();
 	const blockProps = useBlockProps();
+	// Our nested innerblocks that will be inserted by default.
+	const innerBlocksProps = useInnerBlocksProps(
+		{ className: 'swiper-wrapper' },
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			defaultBlock: {
+				name: DEFAULT_BLOCK,
+				attributes: {
+					url: `${ PLACEHOLDER_IMG_3 }`,
+					...DEFAULT_BLOCK_ATTRIBUTES,
+				},
+			},
+			directInsert: true,
+			orientation: 'horizontal',
+			template: [
+				[
+					DEFAULT_BLOCK,
+					{
+						url: `${ PLACEHOLDER_IMG_1 }`,
+						...DEFAULT_BLOCK_ATTRIBUTES,
+					},
+					[
+						[
+							DEFAULT_INNERBLOCK,
+							{
+								placeholder: __( 'Slide title…', 'wpe' ),
+								...DEFAULT_INNERBLOCK_ATTRIBUTES,
+							},
+						],
+					],
+				],
+				[
+					DEFAULT_BLOCK,
+					{
+						url: `${ PLACEHOLDER_IMG_2 }`,
+						...DEFAULT_BLOCK_ATTRIBUTES,
+					},
+					[
+						[
+							DEFAULT_INNERBLOCK,
+							{
+								placeholder: __( 'Slide title…', 'wpe' ),
+								...DEFAULT_INNERBLOCK_ATTRIBUTES,
+							},
+						],
+					],
+				],
+			],
+			renderAppender: false,
+		}
+	);
 
 	return (
 		<>
 			<div { ...blockProps }>
-				<Slider clientId={ clientId } attributes={ attributes } />
+				<Slider
+					clientId={ clientId }
+					attributes={ attributes }
+					innerBlocksProps={ innerBlocksProps }
+				/>
 			</div>
 
 			<InspectorControls>

@@ -1,5 +1,7 @@
 /**
  * Swiper dependencies
+ *
+ * @see https://swiperjs.com/get-started
  */
 import { Swiper } from 'swiper';
 import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
@@ -9,7 +11,10 @@ import { Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
  *
  * @param {Element} container HTMLElement.
  * @param {Object}  options   Slider parameters.
+ *
  * @return {Object} Returns initialized slider instance.
+ *
+ * @see https://swiperjs.com/swiper-api#parameters
  */
 export function SwiperInit( container, options = {} ) {
 	const parameters = {
@@ -21,9 +26,6 @@ export function SwiperInit( container, options = {} ) {
 		keyboard: true,
 		modules: [ Autoplay, Keyboard, Navigation, Pagination ],
 		navigation: options?.navigation ?? false,
-		observer: true,
-		observeSlideChildren: true,
-		observeParents: true,
 		pagination: options?.pagination ?? false,
 		simulateTouch: options?.simulateTouch ?? true,
 	};
