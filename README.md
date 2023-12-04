@@ -15,6 +15,11 @@ This is a demonstration of how you might create a custom Slider Block, which is 
 
 ## Changelog
 
+### 0.1.2 – 2023-12-04
+
+- 🐛 FIX: missing memoization
+- 👌 IMPROVE: Allowed Blocks = core/cover only
+
 ### 0.1.1 – 2023-12-04
 
 - Major refactor 😎:
