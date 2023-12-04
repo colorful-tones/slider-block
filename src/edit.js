@@ -76,7 +76,7 @@ const SliderToolbar = ( { clientId } ) => {
 /**
  * Slider component.
  */
-const Slider = ( { clientId, attributes, innerBlocksProps } ) => {
+const Slider = memo( ( { clientId, attributes, innerBlocksProps } ) => {
 	const sliderRef = useRefEffect( ( element ) => {
 		const options = {
 			...attributes,
@@ -161,7 +161,7 @@ const Slider = ( { clientId, attributes, innerBlocksProps } ) => {
 			/>
 		</>
 	);
-};
+} );
 
 /**
  * The edit function describes the structure of your block in the context of the
