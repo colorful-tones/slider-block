@@ -2,15 +2,7 @@
  * These are the block we'll allow to be inserted
  * as a slide.
  */
-export const ALLOWED_BLOCKS = [
-	'core/button',
-	'core/buttons',
-	'core/cover',
-	'core/group',
-	'core/heading',
-	'core/image',
-	'core/paragraph',
-];
+export const ALLOWED_BLOCKS = [ 'core/cover' ];
 
 /**
  * This is the default block we'll use for our slide.
