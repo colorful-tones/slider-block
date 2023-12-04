@@ -47,7 +47,7 @@
     }
   },
   "textdomain": "wpe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "render": "file:./render.php",

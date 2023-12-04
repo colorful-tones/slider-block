@@ -4,7 +4,7 @@
  * Description:       A slider carousel block for WordPress with SwiperJS.
  * Requires at least: 6.4
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            Damon Cook
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,9 +22,7 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function wpe_slider_block_init() {
-	// Register Slide block.
-	register_block_type( __DIR__ . '/build/blocks/slide' );
 	// Register Slider block.
-	register_block_type( __DIR__ . '/build/blocks/slider' );
+	register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'wpe_slider_block_init' );

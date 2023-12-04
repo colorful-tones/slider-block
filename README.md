@@ -15,6 +15,13 @@ This is a demonstration of how you might create a custom Slider Block, which is 
 
 ## Changelog
 
+### 0.1.1 – 2023-12-04
+
+- Major refactor 😎:
+  - Remove need to have two custom blocks: Slider and Slide (`"parent": ['wpe/slider]`). This was just unnecessary and mildly confusing. We're ultimately utilising `InnerBlocks` and `useInnerBlocksProps()` to nest things.
+  - Create `constants.js` to try and allow builders to drop in their own default blocks for slides.
+  - Generally "cleaner" codebase.
+
 ### 0.1.0 – 2023-11-28
 
 Initial release, which includes:
